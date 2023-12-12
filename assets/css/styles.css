@@ -22,7 +22,7 @@ body{
 .newsletter{
     width: 50%;
     background-color: var(--White);
-    display: none;
+    display: flex;
     column-gap: 1rem;
     border-radius: 20px;
     border: 0;

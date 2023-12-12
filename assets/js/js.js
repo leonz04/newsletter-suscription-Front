@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const btn= document.querySelector(".btn");
     const newsletter =document.querySelector(".newsletter");
-    const modal =document.querySelector(".btn_modal");
     const email=document.querySelector('#email')
     const msgError=document.querySelector('#msgError')
     const confirm=document.querySelector('.confirm')
@@ -11,11 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    modal.addEventListener('click',function(){
-        newsletter.style.display='flex';
-        
-        
-    });
+  
     function pruebaemail (valor){
         let re=new RegExp('^(.+)@(\\S+)$');
         if(!re.exec(valor)){
@@ -32,6 +27,24 @@ document.addEventListener('DOMContentLoaded', function () {
         return patronCorreo.test(correo);
     }
     
+    email.addEventListener("keypress", function(event){
+
+        if(event.key==="Enter"){
+            if (validarCorreo(email.value)){
+            
+                newsletter.style.display='none';
+                confirm.style.display='flex';
+    
+               
+            }else{
+                msgError.innerHTML="Correo no válido";
+                window.alert('error');
+                
+            }
+
+        }
+
+    })
 
     btn.addEventListener('click',function(){
 
